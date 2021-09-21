@@ -8,14 +8,14 @@ class Game {
         this.phrases = this.createPhrases();
         this.activePhrase = 'null';
     }
-    /**
-    * Creates phrases for use in game
-    * @return {array} An array of phrases that could be used in the game
-    */
+/**
+* Creates phrases for use in game
+* @return {array} An array of phrases that could be used in the game
+*/
     createPhrases() {
         let lowerCasePhrases = [];
-        let phrases =   ['grandma has the best cookies',
-                        'softer than a babies bottom',
+        let phrases =   ['Grandma has the best cookies',
+                        'Softer than a babies bottom',
                         'The only things for certain in life are death and taxes',
                         'A Bargain At Half The Price',
                         'Whatever Floats Your Boat',
@@ -28,4 +28,13 @@ class Game {
         //console.log(lowerCasePhrases)
         return lowerCasePhrases;
     }
+/**
+* Selects random phrase from phrases property
+* @return {Object} Phrase object chosen to be used
+*/
+    getRandomPhrase() {
+        const index = Math.floor(Math.random() * this.phrases.length);
+        return this.phrases[index];
+    };
+
 }

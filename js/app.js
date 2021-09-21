@@ -2,6 +2,7 @@
  * Project 4 - OOP Game App
  * app.js */
 
+let phraseUL = document.getElementById('phrase').firstElementChild;
 
 
 
@@ -12,9 +13,23 @@ console.log(`Phrase - phrase: ${phrase.phrase}`);
 *
 */
 
-const game = new Game();
-game.phrases.forEach((phrase, index) => {
-console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-});
+// const game = new Game();
+// game.phrases.forEach((phrase, index) => {
+// console.log(`Phrase ${index} - phrase: ${phrase.selectedPhrase}`);
+// });
 
-//  `Phrase ${index} - phrase: ${phrase.phrase}`
+
+// const logPhrase = (phrase) => {
+//     console.log(`Phrase - phrase: `, phrase.selectedPhrase);
+//     };
+// const game = new Game();
+//     logPhrase(game.getRandomPhrase());
+//     logPhrase(game.getRandomPhrase());
+//     logPhrase(game.getRandomPhrase());
+//     logPhrase(game.getRandomPhrase());
+//     logPhrase(game.getRandomPhrase());
+
+//     console.log(`Phrase - phrase: `, game.getRandomPhrase().selectedPhrase);
+
+const game = new Game();
+game.getRandomPhrase().addPhraseToDisplay();
