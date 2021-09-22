@@ -3,15 +3,11 @@
  * app.js */
 
 let phraseUL = document.getElementById('phrase').firstElementChild;
+let startOverlay = document.getElementById('overlay');
 
 
-
-/* 
-* testing code
-const phrase = new Phrase('Life is like a box of chocolates');
-console.log(`Phrase - phrase: ${phrase.phrase}`);
-*
-*/
+// const phrase = new Phrase('Life is like a box of chocolates');
+// console.log(`Phrase - phrase: ${phrase.selectedPhrase}`);
 
 // const game = new Game();
 // game.phrases.forEach((phrase, index) => {
@@ -31,5 +27,9 @@ console.log(`Phrase - phrase: ${phrase.phrase}`);
 
 //     console.log(`Phrase - phrase: `, game.getRandomPhrase().selectedPhrase);
 
+// const game = new Game();
+// game.getRandomPhrase().addPhraseToDisplay();
+
 const game = new Game();
-game.getRandomPhrase().addPhraseToDisplay();
+game.startGame();
+console.log(`Active Phrase - phrase: ${game.activePhrase.selectedPhrase}`);
