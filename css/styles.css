@@ -159,6 +159,10 @@ button {
   border-right: solid 3px rgba(0, 0, 0, 0);
 }
 
+.disabled {
+  background-color: rgb(109, 109, 109);
+}
+
 
 /* Overlay */
 
@@ -196,7 +200,7 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-color: #ff1e008a;
 }
 
 .lose a {
