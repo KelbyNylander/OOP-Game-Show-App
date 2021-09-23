@@ -53,16 +53,14 @@ class Game {
         if ( this.activePhrase.checkLetter(button.textContent) === false ) {
             button.classList = "wrong";
             this.removeLife()
-
-        } if ( this.activePhrase.checkLetter(button.textContent) === true ) {
-            button.classList = 'chosen';
-            this.activePhrase.showMatchedLetter(button.textContent);
+        }   if ( this.activePhrase.checkLetter(button.textContent) === true ) {
+                button.classList = 'chosen';
+                this.activePhrase.showMatchedLetter(button.textContent);
+        }   if ( this.checkForWin() ) {
+                this.gameOver(true);
         }
-        if ( this.checkForWin() ) {
-            this.gameOver(true);
-            }
-        console.log(button);
-        };/**
+    };
+/**
 * Checks for winning move
 * @return {boolean} True if game has been won, false if game wasn't
 won
@@ -73,9 +71,7 @@ won
             return false;
        } if ( hiddenLetters.length === 0 )  {
            return true;
-       }  else {
-           return null
-       }
+       }  
     };
 /**
 * Increases the value of the missed property
@@ -85,7 +81,6 @@ won
     removeLife() {
         this.missed++;
         heart[ heart.length - this.missed ].src = 'images/lostHeart.png'
-
         if ( this.missed >= 5 ) {
             this.gameOver(false);
         } 
@@ -94,15 +89,14 @@ won
 * Displays game over message
 * @param {boolean} gameWon - Whether or not the user won the game
 */
-gameOver(gameWon) {
-    startOverlay.style.display = '';
-    if ( this.missed === 5) {
-        gameOverMessage.textContent = `Better luck next time! The phrase was "${this.activePhrase.selectedPhrase}"`;
-        startOverlay.className = 'lose';
-    } else {
-        startOverlay.className = 'win';
-        gameOverMessage.textContent = `You Won! The phrase was "${this.activePhrase.selectedPhrase}"`;
-    }
-
-};
+    gameOver(gameWon) {
+        startOverlay.style.display = '';
+        if ( this.missed === 5) {
+            gameOverMessage.textContent = `Better luck next time! The phrase was "${this.activePhrase.selectedPhrase}"`;
+            startOverlay.className = 'lose';
+        } else {
+            startOverlay.className = 'win';
+            gameOverMessage.textContent = `You Won! The phrase was "${this.activePhrase.selectedPhrase}"`;
+        }
+    };
 }
