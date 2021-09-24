@@ -4,7 +4,7 @@
 /* Variables */
 
 :root {
-  --color-win: #78CF82;
+  --color-win: #1cc32f;
   --color-lose: #D94545;
   --color-start: #5b85b7;
   --color-neutral: #445069;
@@ -138,8 +138,8 @@ button {
 }
 
 .wrong {
-  background: #f7a964;
-  color: #FFFFFF;
+  background: #fb1010;
+  color: #000000;
 }
 
 .btn__reset {

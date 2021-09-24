@@ -43,19 +43,29 @@ class Game {
         const calledPhrase = this.getRandomPhrase();
         calledPhrase.addPhraseToDisplay();
         this.activePhrase = calledPhrase;
+
+        // reset hearts
+        game.missed = 0;
+        for ( let i = 0; i < heart.length; i++ ) {
+            heart[i].src = ''
+            heart[i].src = 'images/liveHeart.png';
+        }
+    
     };
 /**
 * Handles onscreen keyboard button clicks
 * @param (HTMLButtonElement) button - The clicked button element
 */
-    handleInteraction(button) {
-        button.disabled = true;
-        if ( this.activePhrase.checkLetter(button.textContent) === false ) {
-            button.classList = "wrong";
+    handleInteraction(key) {
+
+        key.disabled = true;
+
+        if ( this.activePhrase.checkLetter(key.textContent) === false ) {
+            key.classList = "wrong";
             this.removeLife()
-        }   if ( this.activePhrase.checkLetter(button.textContent) === true ) {
-                button.classList = 'chosen';
-                this.activePhrase.showMatchedLetter(button.textContent);
+        }   if ( this.activePhrase.checkLetter(key.textContent) === true ) {
+            key.classList = 'chosen';
+                this.activePhrase.showMatchedLetter(key.textContent);
         }   if ( this.checkForWin() ) {
                 this.gameOver(true);
         }
@@ -98,5 +108,12 @@ won
             startOverlay.className = 'win';
             gameOverMessage.textContent = `You Won! The phrase was "${this.activePhrase.selectedPhrase}"`;
         }
+        //clear phrase
+        phraseUL.innerHTML = '';
+        // re-enable disbaled keys
+        letterButtons.forEach( key => {
+            key.disabled = false;
+            key.classList.remove('wrong', 'chosen');
+        });
     };
 }

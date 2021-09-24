@@ -9,20 +9,10 @@ const letterButtons = document.querySelectorAll('button[class="key"]');
 let heart = document.querySelectorAll('img');
 let gameOverMessage = document.getElementById('game-over-message');
 
-let game = new Game()
+//let game = new Game();
 startButton.addEventListener('click', (e) => {
-    phraseUL.innerHTML = '';
-    letterButtons.forEach( key => {
-        key.disabled = false;
-        key.classList.remove('wrong', 'chosen');
-    })
-    game.missed = 0;
+    game = new Game();
     game.startGame();
-    for ( let i = 0; i < heart.length; i++ ) {
-        heart[i].src = ''
-        heart[i].src = 'images/liveHeart.png';
-        console.log(heart[i]);
-    }
 });
 
 document.getElementById('qwerty').addEventListener('click', (e) => {
@@ -30,3 +20,14 @@ document.getElementById('qwerty').addEventListener('click', (e) => {
         game.handleInteraction(e.target);
     }
  });
+
+ //added keyboard functions
+ document.addEventListener('keydown', key => {
+    let pressedKey = key.key.toLowerCase();
+    if ( /^[a-z]$/.test(pressedKey) && startOverlay.style.display === 'none' )
+        letterButtons.forEach( key => {
+            if ( key.textContent === pressedKey ) {
+                game.handleInteraction(key);
+        }
+     });
+});
