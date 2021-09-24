@@ -58,17 +58,16 @@ class Game {
 */
     handleInteraction(key) {
 
-        key.disabled = true;
-
-        if ( this.activePhrase.checkLetter(key.textContent) === false ) {
+        if ( this.activePhrase.checkLetter(key.textContent) === false && key.disabled === false) {
             key.classList = "wrong";
             this.removeLife()
         }   if ( this.activePhrase.checkLetter(key.textContent) === true ) {
             key.classList = 'chosen';
-                this.activePhrase.showMatchedLetter(key.textContent);
+            this.activePhrase.showMatchedLetter(key.textContent);
         }   if ( this.checkForWin() ) {
                 this.gameOver(true);
         }
+        key.disabled = true;
     };
 /**
 * Checks for winning move
