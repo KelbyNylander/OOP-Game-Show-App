@@ -9,12 +9,12 @@ const letterButtons = document.querySelectorAll('button[class="key"]');
 let heart = document.querySelectorAll('img');
 let gameOverMessage = document.getElementById('game-over-message');
 
-//let game = new Game();
 startButton.addEventListener('click', (e) => {
     game = new Game();
     game.startGame();
 });
 
+//listener adds click funtion to on screen keyboard
 document.getElementById('qwerty').addEventListener('click', (e) => {
     if ( e.target.tagName === 'BUTTON') {
         game.handleInteraction(e.target);
